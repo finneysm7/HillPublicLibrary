@@ -1,4 +1,4 @@
-<h2>Edit Link</h2>
+<h2>Edit Book</h2>
 
 <%= render "layouts/errors" %>
 <form action="<%= book_url(@book) %>" method="post">
@@ -22,8 +22,15 @@
 		<input type='text' name="book[dewey_decimal_number]" value="<%= @book.dewey_decimal_number %>">
 	</label><br>
 	
-	<label for="status">Status</label>
-	<input type='checkbox' id='status' name='book[status]' value='<%= @book.status %>'>Checked out?</input><br>
+	<label>Status
+		<%if @book.status%>
+			<input type='radio' name='book[status]' value="false">Checked in</input>
+			<input type='radio' name='book[status]' value="true" checked>Checked out</input>
+		<%else%>
+			<input type='radio' name='book[status]' value="false" checked>Checked in</input>
+			<input type='radio' name='book[status]' value="true">Checked out</input>
+		<%end%>
+	</label>
 	
 	<input type="submit" value="Update Book">
 </form>

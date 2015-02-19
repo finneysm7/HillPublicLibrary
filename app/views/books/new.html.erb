@@ -23,8 +23,10 @@
 		<input type='text' name="book[dewey_decimal_number]" value="<%= @book.dewey_decimal_number %>">
 	</label><br>
 	
-	<label for="status">Status</label>
-	<input type='checkbox' id='status' name='book[status]'>Checked out?</input>
+	<label>Status
+	<input type='radio' name='book[status]' value="false" checked>Checked in</input>
+	<input type='radio' name='book[status]' value="true">Checked out</input>
+	</label>
 	
 	<input type="submit" value="Create New Book">
 </form>
