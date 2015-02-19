@@ -1,10 +1,13 @@
 class Book < ActiveRecord::Base
-  before_validation :set_status
   validates :author, :title, presence: true
   
-  def set_status
-    if !:status
-      self.status = false
+  validate :published_format
+
+  private
+
+  def published_format
+    unless (1000..Date.today.year).include?(publication_date.to_i)
+      errors.add(:publication_date, "should be a four-digit year")
     end
   end
 end
