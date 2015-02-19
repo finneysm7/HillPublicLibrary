@@ -1,0 +1,30 @@
+<h2>New Book</h2>
+
+<%= render "layouts/errors"%>
+
+<form action="<%= books_url %>" method="post">
+	<%= auth_token_input %>
+	
+	<label>
+		Title
+		<input type="text" name="book[title]" value="<%= @book.title %>">
+	</label><br>
+	
+	<label>
+		Author
+		<input type="text" name="book[author]" value="<%= @book.author %>">
+	</label><br>
+	
+	<label for="date">Publication Date</label>
+	<input type='date' name="book[publication_date]" value="<%= @book.publication_date %>" id='date'><br>
+	
+	<label>
+		Dewey Decimal Number
+		<input type='text' name="book[dewey_decimal_number]" value="<%= @book.dewey_decimal_number %>">
+	</label><br>
+	
+	<label for="status">Status</label>
+	<input type='checkbox' id='status' name='book[status]'>Checked out?</input>
+	
+	<input type="submit" value="Create New Book">
+</form>
