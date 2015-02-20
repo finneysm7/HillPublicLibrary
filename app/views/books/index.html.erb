@@ -2,9 +2,9 @@
 
 <ul>
 	<% @books.each do |book| %>
-	<li><%= link_to book.title, book_url(book) %><br>
-		<%= book.author %><%= book.publication_date %><br><%= book.dewey_decimal_number %><br>
-		<% if book.status %>
+	<li>Title: <%= link_to book.title, book_url(book) %><br>
+		Author: <%= book.author %><br>
+		Status: <% if book.status %>
 			checked out
 		<%else%>
 			checked in
