@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_filter :require_signed_in!
+  
   def index
     @books = Book.all
   end
