@@ -4,11 +4,11 @@ Publication Date: <%= @book.publication_date%>
 <br>
 Dewey Decimal Number: <%= @book.dewey_decimal_number%>
 <br>
-Status <%if @book.status%>
+Status: <%if @book.status%>
 		checked out
 		<% else %>
 		checked in
 		<% end %>
-		
+<br>	
 <%= link_to "Edit Book", edit_book_url(@book)%>
 <%= link_to "Books", books_url%>

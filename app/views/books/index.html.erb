@@ -2,8 +2,8 @@
 
 <ul>
 	<% @books.each do |book| %>
-	<li><%= link_to book.title, book_url(book) %>
-		<%= book.author %><%= book.publication_date %><%= book.dewey_decimal_number %>
+	<li><%= link_to book.title, book_url(book) %><br>
+		<%= book.author %><%= book.publication_date %><br><%= book.dewey_decimal_number %><br>
 		<% if book.status %>
 			checked out
 		<%else%>
