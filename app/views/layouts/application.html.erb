@@ -4,19 +4,24 @@
   <title>HillLibrary</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/css/bootstrap.min.css">
+  <link rel="stylesheet" href="">
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-
-<% if signed_in? %>
-  <%= current_user.username %>
-  <%= button_to "Sign Out", session_url, :method => :delete %>
-<% else %>
-  <%= link_to "Sign In", new_session_url %>
-  <%= link_to "Sign Up", new_user_url %>
-<% end %>
-
+<nav class="navbar navbar-default">
+	<div class="container-fluid">
+		<ul class="nav navbar-nav">
+			<% if signed_in? %>
+			  <li class='username'><%= current_user.username %></li>
+			  <li class='signout'><%= button_to "Sign Out", session_url, :method => :delete %></li>
+			<% else %>
+			  <li><%= link_to "Sign In", new_session_url %></li>
+			  <li><%= link_to "Sign Up", new_user_url %></li>
+			<% end %>
+		</ul>
+	</div>
+</nav>
 <%= yield %>
 
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>

@@ -13,3 +13,13 @@
  *= require_tree .
  *= require_self
  */
+
+.username {
+	margin-top: 15px;
+	margin-right: 15px;
+}
+
+.signout {
+	margin-top: 12px;
+	margin-left: 15px;
+}
